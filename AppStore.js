@@ -37,7 +37,7 @@ class OrchidAppStore {
         let appDataPath = OrchidAppStore.getUserDataPath();
         let identitiesPath = path.join(appDataPath, 'identities');
         try { fs.mkdirSync(identitiesPath, {recursive: true}); } catch {return false}
-        fs.writeFile(path.join(identitiesPath, `${data.disp}.orchid`), identityString);
+        fs.writeFileSync(path.join(identitiesPath, `${data.disp}.orchid`), identityString);
         return true;
     }
 
@@ -71,3 +71,5 @@ class OrchidAppStore {
         }
     }
 }
+
+module.exports = OrchidAppStore;
